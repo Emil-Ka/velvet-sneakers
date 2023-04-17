@@ -6,7 +6,7 @@ import { Hoc } from 'shared/types';
 export const withRouter: Hoc = (Component) => (props) =>
   (
     <BrowserRouter>
-      <Suspense fallback="Loading...">
+      <Suspense fallback="Тяги грузятся...">
         <Component {...props} />
       </Suspense>
     </BrowserRouter>
