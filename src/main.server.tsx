@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
 
 import { App } from 'app';
 
@@ -9,6 +9,6 @@ if (!htmlRoot) {
   throw new Error('Element with id root not found');
 }
 
-const reactRoot = createRoot(htmlRoot);
-
-reactRoot.render(<App />);
+window.addEventListener('load', () => {
+  hydrateRoot(htmlRoot, <App />);
+});
