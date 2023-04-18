@@ -1,4 +1,15 @@
 .header {
   display: flex;
   justify-content: center;
+  background: var(--secondary-color);
+  padding: var(--indent-size-s) 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: var(--indent-size-m);
 }
