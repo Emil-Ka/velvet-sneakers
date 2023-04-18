@@ -1,1 +1,2 @@
-export { Hoc } from './hoc';
+export { type Hoc } from './hoc';
+export { THEME } from './theme';

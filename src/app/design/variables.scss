@@ -1,0 +1,32 @@
+#root {
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+  --purple-color: #8B32FD;
+  --silver-color: #F3F3F3;
+  --gray-color: #E5E5E5;
+
+  // отступы
+  --indent-size-xs: 0.5rem;
+  --indent-size-s: 1rem;
+  --indent-size-m: 2rem;
+  --indent-size-l: 3rem;
+  --indent-size-xl: 4rem;
+
+  // размеры шрифта
+  --font-xs: 0.75rem;
+  --font-s: 1rem;
+  --font-m: 1.25rem;
+  --font-l: 1.5rem;
+  --font-xl: 1.75rem;
+  --font-xxl: 2rem;
+}
+
+#root[data-theme="light"] {
+  --primary-color: var(--white-color);
+  --secondary-color: var(--black-color);
+}
+
+#root[data-theme="dark"] {
+  --primary-color: var(--black-color);
+  --secondary-color: var(--white-color);
+}
