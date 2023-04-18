@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <Page className={styles.kefteme}>
       Что за тяги такие бархатные? Уффф кефтемеее...
-      <Carousel blocks={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]} />
+      <Carousel blocks={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }]} />
     </Page>
   );
 };

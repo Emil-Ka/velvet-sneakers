@@ -7,4 +7,5 @@ interface block {
 
 export interface CarouselProps extends ComponentProps<'div'> {
   blocks: block[];
+  perPage?: number;
 }
