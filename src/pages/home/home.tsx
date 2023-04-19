@@ -10,7 +10,10 @@ export const Home = () => {
   return (
     <Page className={styles.home}>
       <Container>
-        <Carousel blocks={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }]} />
+        <Carousel
+          blocks={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }]}
+          perPage={3}
+        />
       </Container>
     </Page>
   );

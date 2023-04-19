@@ -9,8 +9,7 @@
     overflow: hidden;
     flex-wrap: nowrap;
 
-    margin: 0 6rem;
-    gap: 1rem;
+    gap: 2%;
 
     .carouselItem {
       height: 20rem;
@@ -42,11 +41,11 @@
   }
 
   .carouselButtonBack {
-    left: 1rem;
+    left: 0;
   }
 
   .carouselButtonNext {
-    right: 1rem;
+    right: 0;
   }
 }
 
