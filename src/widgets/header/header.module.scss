@@ -1,8 +1,10 @@
 .header {
   display: flex;
   justify-content: center;
-  background: var(--secondary-color);
+
   padding: var(--indent-size-s) 0;
+
+  background: var(--secondary-color);
 }
 
 .content {
