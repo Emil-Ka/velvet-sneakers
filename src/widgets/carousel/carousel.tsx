@@ -15,13 +15,15 @@ export const Carousel: FC<CarouselProps> = ({ className, perPage = 3, blocks }) 
   useEffect(() => {
     if (width > 900) {
       setItemsPerPage(perPage);
-    } else if (width > 670 && width < 900) {
+    }
+    if (width > 670 && width < 900) {
       if (itemsPerPage >= 2) {
         setItemsPerPage(2);
       } else {
         setItemsPerPage(perPage);
       }
-    } else if (width < 670) {
+    }
+    if (width < 670) {
       if (itemsPerPage >= 1) {
         setItemsPerPage(1);
       } else {
@@ -58,6 +60,7 @@ export const Carousel: FC<CarouselProps> = ({ className, perPage = 3, blocks }) 
       setActiveIndex(activeIndex + 1);
     }
   };
+
   const moveNext = () => {
     const moveLength = -(blocks.length - perPage);
     const isEnd = activeIndex === moveLength;
@@ -93,54 +96,3 @@ export const Carousel: FC<CarouselProps> = ({ className, perPage = 3, blocks }) 
     </div>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
