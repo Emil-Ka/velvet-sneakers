@@ -1,9 +1,11 @@
 #root {
-  --white-color: #FFFFFF;
-  --black-color: #000000;
+  --white-color: #FFF;
+  --black-color: #000;
   --purple-color: #8B32FD;
+  --dark-purple-color: #6500CA;
   --silver-color: #F3F3F3;
   --gray-color: #E5E5E5;
+  --yellow-color: #FFD600;
 
   // отступы
   --indent-size-xs: 0.5rem;
@@ -19,6 +21,14 @@
   --font-l: 1.5rem;
   --font-xl: 1.75rem;
   --font-xxl: 2rem;
+
+  // закругления
+  --round-xs: 0.25rem;
+  --round-s: 0.5rem;
+  --round-m: 0.75rem;
+  --round-l: 1rem;
+  --round-xl: 1.5rem;
+  --round-xxl: 2rem;
 }
 
 #root[data-theme="light"] {

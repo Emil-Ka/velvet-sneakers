@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { DEFAULT_THEME } from 'config';
 import { ThemeContext } from 'shared/context';
-import { Hoc, THEME } from 'shared/types';
+import { Hoc } from 'shared/types';
 import { changeTheme } from 'shared/utils';
 
 export const withTheme: Hoc = (Component) => (props) => {
@@ -13,10 +13,6 @@ export const withTheme: Hoc = (Component) => (props) => {
     }),
     [],
   );
-
-  useEffect(() => {
-    changeTheme(THEME.LIGHT);
-  }, []);
 
   return (
     <ThemeContext.Provider value={themeProviderValue}>
