@@ -1,0 +1,16 @@
+.form {
+  gap: var(--indent-size-s);
+  display: flex;
+  flex-direction: column;
+  padding: var(--indent-size-l) var(--indent-size-m);
+  border-radius: var(--round-xxl);
+}
+
+.filled {
+  background: var(--purple-color);
+}
+
+.border {
+  border: 2px solid var(--purple-color);
+  background: var(--secondary-color);
+}

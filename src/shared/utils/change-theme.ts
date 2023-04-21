@@ -1,6 +1,6 @@
-import { ThemeUnion } from '../types';
+import { THEME } from '../types';
 
-export const changeTheme = (theme: ThemeUnion) => {
+export const changeTheme = (theme: THEME) => {
   const root = document.getElementById('root');
 
   if (!root) {
