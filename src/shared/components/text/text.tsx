@@ -4,10 +4,22 @@ import cn from 'classnames';
 import { TextProps } from './types';
 import styles from './text.module.scss';
 
-export const Text: FC<TextProps> = ({ className, children, ...props }) => {
+export const Text: FC<TextProps> = ({
+  tag: Tag = 'div',
+  color,
+  size,
+  className,
+  children,
+  ...props
+}) => {
+  const style = {
+    color,
+    fontSize: size,
+  };
+
   return (
-    <div className={cn(styles.text, className)} {...props}>
+    <Tag className={cn(styles.text, className)} style={style} {...props}>
       {children}
-    </div>
+    </Tag>
   );
 };
