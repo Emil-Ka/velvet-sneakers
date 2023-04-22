@@ -4,17 +4,25 @@ import cn from 'classnames';
 import { TextProps } from './types';
 import styles from './text.module.scss';
 
+const fontSizes = {
+  xs: '18px',
+  s: '20px',
+  m: '24px',
+  l: '54px',
+  xl: '98px',
+};
+
 export const Text: FC<TextProps> = ({
   tag: Tag = 'div',
   color,
-  size,
+  size = 'xs',
   className,
   children,
   ...props
 }) => {
   const style = {
     color,
-    fontSize: size,
+    fontSize: fontSizes[size],
   };
 
   return (

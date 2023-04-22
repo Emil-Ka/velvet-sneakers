@@ -17,17 +17,17 @@ export const Footer: FC<FooterProps> = ({ className, ...props }) => {
             <img src={telegramIcon} alt="Telegram" />
           </a>
           <a href="tel:+74950000000">
-            <Text tag="p" color="#fff" size="s" className={cn(styles.number, className)}>
+            <Text tag="p" color="#fff" size="xs" className={cn(styles.number, className)}>
               +7 (495) 000-00-00
             </Text>
           </a>
           <a href="mailto:help@puresneakers.ru">
-            <Text tag="p" color="#fff" size="s" className={cn(styles.mail, className)}>
+            <Text tag="p" color="#fff" size="xs" className={cn(styles.mail, className)}>
               help@puresneakers.ru
             </Text>
           </a>
         </div>
-        <Text tag="p" color="#fff" size="s" className={cn(styles.cpr, className)}>
+        <Text tag="p" color="#fff" size="xs" className={cn(styles.cpr, className)}>
           Copyright (C)
         </Text>
       </Container>
