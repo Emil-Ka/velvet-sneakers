@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { Footer, Header } from 'widgets';
 
+import { Breadcrumbs } from 'shared/components/breadcrumbs';
 import { PageProps } from './types';
 import styles from './page.module.scss';
 
@@ -18,6 +19,7 @@ export const Page: FC<PageProps> = ({
     <div className={cn(styles.page, pageClassName)}>
       <Header className={headerClassName} />
       <main className={cn(styles.main, className)} {...props}>
+        <Breadcrumbs />
         {children}
       </main>
       <Footer className={footerClassName} />
