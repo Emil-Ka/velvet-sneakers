@@ -1,0 +1,19 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  padding: var(--indent-size-l) 0;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.subcont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+

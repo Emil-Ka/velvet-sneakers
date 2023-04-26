@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Carousel, Form } from 'widgets';
 import { Container, Rating } from 'shared/components';
 
+import { Card } from 'widgets/card';
 import { Page } from '../page';
 import styles from './home.module.scss';
 
@@ -49,6 +50,7 @@ export const Home = () => {
           <Form.Input isOutlined type="number" placeholder="Пример со слайдером" />
           <button>Пока кнопочки нет(</button>
         </Form>
+        <Card title="Набор для чистки обуви" price={2900} />
       </Container>
     </Page>
   );
