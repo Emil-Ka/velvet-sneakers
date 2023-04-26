@@ -1,3 +1,5 @@
 import { ComponentProps, PropsWithChildren } from 'react';
 
-export type ListProps = PropsWithChildren<ComponentProps<'div'>>;
+export type ListProps = PropsWithChildren<ComponentProps<'ul'>>;
+
+export type ListItemProps = PropsWithChildren<ComponentProps<'li'>>;

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Container, Text } from 'shared/components';
+import { Container, Text, List, ListItem } from 'shared/components';
 
 import { Page } from '../page';
 import styles from './contact.module.scss';
-import { List, ListItem } from '../../shared/components/list';
 
 export const Contact = () => {
   return (
