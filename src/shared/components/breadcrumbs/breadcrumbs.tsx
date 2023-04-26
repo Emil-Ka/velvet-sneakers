@@ -17,8 +17,15 @@ export const Breadcrumbs: FC = () => {
         </li>
       );
     });
-  if (crumbs.length <= 1) {
+  if (!crumbs.length) {
     return null;
   }
-  return <ul>{crumbs}</ul>;
+  return (
+    <ul>
+      <li className={styles.crumb} key={-1}>
+        <Link to="/">Главная</Link>
+      </li>
+      {crumbs}
+    </ul>
+  );
 };
