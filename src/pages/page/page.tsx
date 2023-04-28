@@ -18,8 +18,8 @@ export const Page: FC<PageProps> = ({
   return (
     <div className={cn(styles.page, pageClassName)}>
       <Header className={headerClassName} />
+      <Breadcrumbs />
       <main className={cn(styles.main, className)} {...props}>
-        <Breadcrumbs />
         {children}
       </main>
       <Footer className={footerClassName} />
