@@ -6,7 +6,7 @@ import { PATHS } from 'config';
 import { Home } from './home';
 import { Contact } from './contact';
 import { About } from './about';
-import { Personal } from './personal';
+import { BeforeAfter } from './before-after';
 
 const routes: RouteObject[] = [
   {
@@ -22,8 +22,8 @@ const routes: RouteObject[] = [
     element: <Contact />,
   },
   {
-    path: PATHS.PERSONAL,
-    element: <Personal />,
+    path: PATHS.BEFORE_AFTER,
+    element: <BeforeAfter />,
   },
 ];
 

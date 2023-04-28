@@ -21,7 +21,7 @@ export const Breadcrumbs: FC = () => {
     return null;
   }
   return (
-    <ul>
+    <ul className={styles.crumbs}>
       <li className={styles.crumb} key={-1}>
         <Link to="/">Главная</Link>
       </li>
