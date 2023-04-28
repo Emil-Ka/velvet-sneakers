@@ -6,6 +6,7 @@ import { PATHS } from 'config';
 import { Home } from './home';
 import { Contact } from './contact';
 import { About } from './about';
+import { Personal } from './personal';
 
 const routes: RouteObject[] = [
   {
@@ -19,6 +20,10 @@ const routes: RouteObject[] = [
   {
     path: PATHS.CONTACTS,
     element: <Contact />,
+  },
+  {
+    path: PATHS.PERSONAL,
+    element: <Personal />,
   },
 ];
 
