@@ -6,10 +6,12 @@
 
 .crumb {
   display: inline-block;
+
   margin-right: 10px;
 
-  &:not(:last-child):after {
-    content: '/';
+  &:not(:last-child)::after {
     margin-left: 10px;
+
+    content: "/";
   }
 }

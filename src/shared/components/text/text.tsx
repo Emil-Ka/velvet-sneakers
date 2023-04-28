@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import React, { CSSProperties, FC } from 'react';
 import cn from 'classnames';
 
 import { TextProps } from './types';
 import styles from './text.module.scss';
 
 const fontSizes = {
+  xxs: '14px',
   xs: '18px',
   s: '20px',
   m: '24px',
@@ -18,11 +19,13 @@ export const Text: FC<TextProps> = ({
   size = 'xs',
   className,
   children,
+  weight = 'regular',
   ...props
 }) => {
-  const style = {
+  const style: CSSProperties = {
     color,
     fontSize: fontSizes[size],
+    fontWeight: weight,
   };
 
   return (
