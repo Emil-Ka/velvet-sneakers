@@ -4,6 +4,7 @@ import { Page } from 'pages/page';
 import { PRODUCTS } from './constants';
 import styles from './before-after.module.scss';
 
+// TODO добавить страницу в Header
 export const BeforeAfter = () => {
   return (
     <Page>
