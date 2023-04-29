@@ -83,7 +83,7 @@ export const Carousel: FC<CarouselProps> = ({ className, perPage = 3, blocks }) 
             }}
             key={block.id}
           >
-            {block.image}
+            <img src={block.image} alt="boots" />
           </div>
         ))}
       </div>

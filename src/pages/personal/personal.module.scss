@@ -13,7 +13,16 @@
 
 .subcont {
   display: flex;
-  align-items: center;
-  justify-content: space-between
+
+}
+.second {
+  display: flex;
+  flex-direction: column;
+}
+.three {
+  display: flex;
 }
 
+.photoBoots {
+  padding: 20px;
+}
