@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Container, Text } from 'shared/components';
+import { Carousel, Subscription } from 'widgets';
 
 import { Page } from '../page';
 import styles from './personal.module.scss';
-import { Carousel, Form } from '../../widgets';
 
 export const Personal = () => {
   return (
@@ -15,44 +15,12 @@ export const Personal = () => {
           Ваши персональные предложения{' '}
         </Text>
         <div className={styles.subcont}>
-          <img
-            className={styles.photoBoots}
-            width="400px"
-            src="../../assets/airforce1.svg"
-            alt="airforce"
-          />
-          <div className={styles.second}>
-            <div className={styles.three}>
-              <img
-                width="470px"
-                className={styles.photoBoots}
-                src="../../assets/blackfriday.svg"
-                alt="airforce"
-              />
-              <img
-                className={styles.photoBoots}
-                width="290px"
-                src="../../assets/adidas.svg"
-                alt="airforce"
-              />
-            </div>
-
-            <img className={styles.photoBoots} src="../../assets/partner.svg" alt="airforce" />
-          </div>
+          <img className={styles.airforceImg} src="assets/airforce.jpg" alt="airforce" />
+          <img className={styles.blackFridayImg} src="assets/black-friday.jpg" alt="blackfriday" />
+          <img className={styles.adidasImg} src="assets/adidas.jpg" alt="adidas" />
+          <img className={styles.bootsImg} src="assets/partner.jpg" alt="boots" />
         </div>
-        <Text tag="h2" color="#000" size="l" className={styles.title}>
-          {' '}
-          Рассчитай свою подписку{' '}
-        </Text>
-        <Form>
-          <Form.Input isGray isOutlined placeholder="Пример с оутлайном" />
-          <Form.Input isGray type="number" placeholder="Пример со слайдером" />
-          <Form.Input
-            isOutlined
-            placeholder="Пример белого (для светлой темы) инпута с оутлайном"
-          />
-          <button>Пока кнопочки нет(</button>
-        </Form>
+        <Subscription />
         <Text tag="h2" color="#000" size="l" className={styles.title}>
           {' '}
           История ваших заказов{' '}

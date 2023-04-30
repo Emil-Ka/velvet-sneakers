@@ -1,43 +1,53 @@
 .personal {
   display: flex;
   justify-content: center;
+
   padding: var(--indent-size-l) 0;
 }
 
 .title {
   display: flex;
   justify-content: center;
-  font-weight: 700;
+
   margin-bottom: 20px;
+
+  font-weight: 700;
 }
 
 .subcont {
-  display: flex;
-
-}
-.second {
-  display: flex;
-  flex-direction: column;
-}
-
-.three {
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    "airforce blackFriday adidas"
+    "airforce boots boots";
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
 }
 
-.photoBoots {
-  padding: 20px;
+.airforceImg {
+  grid-area: airforce;
 }
 
-@media screen and (max-width: 1300px) {
+.blackFridayImg {
+  grid-area: blackFriday;
+}
+
+.adidasImg {
+  grid-area: adidas;
+}
+
+.bootsImg {
+  grid-area: boots;
+}
+
+@media (max-width: 1200px) {
   .subcont {
-    display: flex;
-    flex-flow: wrap;
-  }
-}
-
-@media screen and (max-width: 780px) {
-  .three {
-    display: flex;
-    flex-flow: wrap;
+    grid-template-areas:
+      "airforce blackFriday"
+      "airforce adidas"
+      "boots boots";
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
   }
 }
