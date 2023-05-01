@@ -6,14 +6,12 @@ import { Text } from 'shared/components';
 import { CardProps } from './types';
 import styles from './card.module.scss';
 
-const cardImage = 'assets/card-image.svg';
-
 // !TODO Заменить текст с кнопкой на настоящую кнопку
 export const Card: FC<CardProps> = ({ className, ...props }) => {
   return (
     <div className={cn(styles.card, className)} {...props}>
       <a href="#top">
-        <img src={cardImage} alt="cardImage" />
+        <img src={props.image} alt="cardImage" />
       </a>
       <Text tag="p" color="#fff" size="s" className={cn(styles.title, className)}>
         {props.title}
