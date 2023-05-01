@@ -8,7 +8,7 @@ import styles from './shop.module.scss';
 // TODO добавить страницу в Header
 export const Shop = () => {
   return (
-    <Page>
+    <Page className={styles.page}>
       <Container className={styles.container}>
         <div className={styles.cart}>
           <img src="assets/shopping-cart.svg" alt="cart" />
