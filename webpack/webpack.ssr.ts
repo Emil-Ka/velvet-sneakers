@@ -1,30 +1,29 @@
-import webpack from 'webpack';
-import 'webpack-dev-server';
-
 import path from 'path';
+import webpack from 'webpack';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const clientConfig: webpack.Configuration = {
-  entry: path.resolve(__dirname, '..', 'src', 'main.client.tsx'),
+const ssrConfig: webpack.Configuration = {
+  entry: path.resolve(__dirname, '..', 'src', 'main.ssr.tsx'),
   output: {
-    path: path.resolve(__dirname, '..', 'client'),
-    filename: '[name].js',
+    path: path.resolve(__dirname, '..', 'ssr'),
+    filename: 'build/[name].js',
     publicPath: '/',
   },
+  devtool: 'source-map',
   plugins: [
     new CopyPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, '..', 'src', 'assets'),
-          to: path.resolve(__dirname, '..', 'client', 'assets'),
+          to: path.resolve(__dirname, '..', 'ssr', 'assets'),
         },
       ],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', 'www', 'index.html'),
-      filename: path.resolve(__dirname, '..', 'client', 'index.html'),
+      filename: path.resolve(__dirname, '..', 'ssr', 'index.html'),
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
@@ -99,19 +98,16 @@ const clientConfig: webpack.Configuration = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     modules: ['node_modules', path.resolve(__dirname, '..', 'src')],
   },
-  devServer: {
-    port: 3000,
-    static: [path.resolve(__dirname, 'client')],
-    historyApiFallback: true,
-  },
 };
 
-const serverForClientConfig: webpack.Configuration = {
+const serverForSsrConfig: webpack.Configuration = {
   target: 'node',
-  entry: path.resolve(__dirname, '..', 'src', 'server', 'client.ts'),
+  entry: path.resolve(__dirname, '..', 'src', 'server', 'ssr.tsx'),
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '..', 'server'),
-    filename: 'client.js',
+    filename: 'ssr.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -122,6 +118,41 @@ const serverForClientConfig: webpack.Configuration = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /(\.module)?\.s[ac]ss$/i,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+                auto: /\.module\.\w+$/i,
+              },
+            },
+          },
+          { loader: 'sass-loader' },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'react-svg-loader',
+            options: {
+              jsx: true,
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
@@ -130,4 +161,4 @@ const serverForClientConfig: webpack.Configuration = {
   },
 };
 
-export default [clientConfig, serverForClientConfig];
+export default [ssrConfig, serverForSsrConfig];

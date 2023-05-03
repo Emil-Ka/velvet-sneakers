@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "target": "ESNext",
-    "module": "umd",
+    "module": "CommonJS",
     "lib": ["ESNext", "dom"],
     "jsx": "react-jsx",
     "noEmit": true,
@@ -17,5 +17,8 @@
   "include": [
     "src",
     "file-declaration.d.ts"
-  ]
+  ],
+  "ts-node": {
+    "files": true
+  },
 }

@@ -6,7 +6,10 @@
       "@babel/preset-env",
       {
         "useBuiltIns": "usage",
-        "corejs": 3
+        "corejs": 3,
+        "targets": {
+          "node": "current"
+        }
       }
     ]
   ],
@@ -15,5 +18,6 @@
     "@babel/plugin-transform-modules-commonjs",
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-typescript"
-  ]
+  ],
+  "extensions": [".js", ".jsx", ".ts", ".tsx"]
 }
