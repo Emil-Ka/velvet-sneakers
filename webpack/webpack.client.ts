@@ -6,8 +6,13 @@ import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
+<<<<<<<< HEAD:webpack/webpack.client.ts
 const clientConfig: webpack.Configuration = {
   entry: path.resolve(__dirname, '..', 'src', 'main.client.tsx'),
+========
+const config: webpack.Configuration = {
+  entry: path.resolve(__dirname, 'src', 'main.client.tsx'),
+>>>>>>>> origin/feature/ssr:webpack.config.ts
   output: {
     path: path.resolve(__dirname, '..', 'client'),
     filename: '[name].js',
