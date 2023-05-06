@@ -5,20 +5,10 @@ import { IProduct } from 'shared/types/product';
 import styles from './before-after.module.scss';
 import { fetchProducts } from './api';
 
-// TODO добавить страницу в Header
 export const BeforeAfter = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
-    let ignore = false;
-    setProducts([]);
-    fetchProducts().then((result) => {
-      if (!ignore) {
-        setProducts(result);
-      }
-    });
-    return () => {
-      ignore = true;
-    };
+    fetchProducts().then(setProducts);
   }, []);
   return (
     <Page>
