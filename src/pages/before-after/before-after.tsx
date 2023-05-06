@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'shared/components';
 import { Page } from 'pages/page';
-import { PRODUCTS } from './constants';
+import { IProduct } from 'shared/types/product';
 import styles from './before-after.module.scss';
+import { fetchProducts } from './api';
 
-// TODO добавить страницу в Header
 export const BeforeAfter = () => {
+  const [products, setProducts] = useState<IProduct[]>([]);
+  useEffect(() => {
+    fetchProducts().then(setProducts);
+  }, []);
   return (
     <Page>
       <Container className={styles.container}>
         <ul className={styles.products}>
-          {PRODUCTS.map(({ image }, index) => (
+          {products.map(({ image, title }, index) => (
             <li key={index}>
-              <img src={`assets/product/${image}`} alt={`Продукт${index}`} />
+              <img src={image} alt={title} />
             </li>
           ))}
         </ul>
