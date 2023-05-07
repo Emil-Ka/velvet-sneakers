@@ -9,6 +9,10 @@ import { Menu } from '../menu';
 import { HeaderProps } from './types';
 import styles from './header.module.scss';
 
+// Просто класс - ок
+// styles.header - в html вообще нет класса
+// cn("header") - ок
+
 // !TODO Добавить выбор города (если нужно вообще), кнопки для аутентификации (когда будут готовы)
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
   return (

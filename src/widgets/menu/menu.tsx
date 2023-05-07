@@ -13,9 +13,9 @@ export const Menu: FC<MenuProps> = ({ className, ...props }) => {
       <ul className={cn(styles.list, className)} {...props}>
         {menuContent.map(({ path, content }) => (
           <li key={path}>
-            <Link className={styles.link} to={path}>
+            <a className={styles.link} href={`http://localhost:8080${path}`}>
               {content}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

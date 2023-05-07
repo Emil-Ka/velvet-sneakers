@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { InputProps } from './types';
@@ -7,6 +7,10 @@ import styles from './input.module.scss';
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, rangeClassName, min, max, type, onChange, isGray, isOutlined, ...props }, ref) => {
     const [value, setValue] = useState<string>('');
+
+    useEffect(() => {
+      console.log(value);
+    }, [value]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (onChange) {

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
-import { Carousel, Form } from 'widgets';
+import { Form } from 'widgets';
 import { Container, Rating } from 'shared/components';
 
 import { Page } from '../page';
@@ -9,13 +10,18 @@ import styles from './home.module.scss';
 export const Home = () => {
   const [rating, setRating] = useState<number>(2);
 
+  useEffect(() => {
+    console.log(rating);
+  }, [rating]);
+
   return (
     <Page className={styles.home}>
+      <Helmet>
+        <title>Home</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <Container>
-        <Carousel
-          blocks={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }]}
-          perPage={3}
-        />
+        <div>rating: {rating}</div>
         <b>Пожилые звездочки, здесь можно изменять количество звезд при наведении</b>
         <Rating
           rating={rating}
