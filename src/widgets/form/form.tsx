@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import { Input } from 'shared/components';
@@ -14,4 +14,6 @@ export const Form: FormType = ({ className, variant = 'transparent', children, .
   );
 };
 
-Form.Input = Input;
+Form.Input = forwardRef(({ className, ...props }, ref) => (
+  <Input className={cn(styles.input, className)} ref={ref} {...props} />
+));
