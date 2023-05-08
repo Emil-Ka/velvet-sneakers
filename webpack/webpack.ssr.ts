@@ -22,7 +22,7 @@ const ssrConfig: webpack.Configuration = {
         {
           from: path.resolve(__dirname, '..', 'www', 'assets'),
           to: path.resolve(__dirname, '..', 'ssr', 'assets'),
-        }
+        },
       ],
     }),
     new HtmlWebpackPlugin({
@@ -57,7 +57,7 @@ const ssrConfig: webpack.Configuration = {
               url: false,
               modules: {
                 mode: 'local',
-                localIdentName: '[name]__[local]',
+                localIdentName: '[path][name]__[local]',
                 auto: /\.module\.\w+$/i,
               },
             },

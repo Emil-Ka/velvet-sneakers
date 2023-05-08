@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const config: webpack.Configuration = {
-  entry: path.resolve(__dirname, 'src', 'main.client.tsx'),
+  entry: path.resolve(__dirname, '..', 'src', 'main.client.tsx'),
   output: {
     path: path.resolve(__dirname, '..', 'client'),
     filename: '[name].js',
@@ -18,6 +18,10 @@ const config: webpack.Configuration = {
       patterns: [
         {
           from: path.resolve(__dirname, '..', 'src', 'assets'),
+          to: path.resolve(__dirname, '..', 'client', 'assets'),
+        },
+        {
+          from: path.resolve(__dirname, '..', 'www', 'assets'),
           to: path.resolve(__dirname, '..', 'client', 'assets'),
         },
       ],
@@ -54,7 +58,7 @@ const config: webpack.Configuration = {
               url: false,
               modules: {
                 mode: 'local',
-                localIdentName: '[name]__[local]__[hash:base64:5]',
+                localIdentName: '[name]__[local]',
                 auto: /\.module\.\w+$/i,
               },
             },
@@ -108,10 +112,10 @@ const config: webpack.Configuration = {
 
 const serverForClientConfig: webpack.Configuration = {
   target: 'node',
-  entry: path.resolve(__dirname, '..', 'src', 'server', 'client.ts'),
+  entry: path.resolve(__dirname, '..', 'server', 'client', 'index.ts'),
   output: {
-    path: path.resolve(__dirname, '..', 'server'),
-    filename: 'client.js',
+    path: path.resolve(__dirname, '..', 'server', 'client'),
+    filename: 'index.js',
   },
   module: {
     rules: [

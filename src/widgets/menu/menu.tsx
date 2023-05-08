@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
+
+import { Link } from 'shared/components';
 
 import { menuContent } from './content';
 import { MenuProps } from './types';
@@ -13,9 +14,9 @@ export const Menu: FC<MenuProps> = ({ className, ...props }) => {
       <ul className={cn(styles.list, className)} {...props}>
         {menuContent.map(({ path, content }) => (
           <li key={path}>
-            <a className={styles.link} href={`http://localhost:8080${path}`}>
+            <Link className={styles.link} to={path}>
               {content}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

@@ -3,7 +3,6 @@ import cn from 'classnames';
 
 import { Container, Text } from 'shared/components';
 import { SectionComponentProps } from 'shared/types';
-import NikeJordanPurple from 'assets/nike-jordan-purple.jpg';
 
 import styles from './after-before-preview.module.scss';
 
@@ -11,7 +10,7 @@ export const AfterBeforePreview: FC<SectionComponentProps> = ({ className, ...pr
   return (
     <section className={cn(styles.afterBeforePreview, className)} {...props}>
       <Container className={styles.content}>
-        <img src={NikeJordanPurple} alt="Найки" className={styles.img} />
+        <img src="assets/nike-jordan-purple.jpg" alt="Найки" className={styles.img} />
         <div className={styles.info}>
           <Text tag="h2" size="l" weight="bold" className={styles.title}>
             До / После

@@ -1,10 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import { SliceNames } from './constants';
-import { beforeReducer } from './before';
-import { afterReducer } from './after';
+import { beforeAfterPageReducer } from './before-after-page';
 
 export const rootReducer = combineReducers({
-  [SliceNames.BEFORE]: beforeReducer,
-  [SliceNames.AFTER]: afterReducer,
+  [SliceNames.BEFORE_AFTER_PAGE]: beforeAfterPageReducer,
 });

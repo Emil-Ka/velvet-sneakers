@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { App } from 'app';
-import { store, preloadedState } from 'store';
+import { store, preloadedState, PreloadedState } from 'store';
 
 const htmlRoot = document.querySelector('#root');
 
@@ -15,7 +15,7 @@ if (!htmlRoot) {
 window.addEventListener('load', () => {
   hydrateRoot(
     htmlRoot,
-    <Provider store={store} serverState={preloadedState}>
+    <Provider store={store} serverState={preloadedState as PreloadedState}>
       <BrowserRouter>
         <App />
       </BrowserRouter>

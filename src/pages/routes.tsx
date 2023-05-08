@@ -3,11 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 import { AxiosResponse } from 'axios';
 
 import { PATHS } from 'config';
-import { api } from 'shared/api';
-
+import { backendApi } from 'shared/api';
 import { SliceNames } from 'store/constants';
+
 import { Home } from './home';
-import { Before } from './before';
+import { About } from './about';
+import { BeforeAfter } from './before-after';
+import { Shop } from './shop';
+import { Contact } from './contact';
+import { Personal } from './personal';
 
 interface RouteConfig {
   path: PATHS;
@@ -23,15 +27,27 @@ export const routes: RouteConfig[] = [
   },
   {
     path: PATHS.BEFORE_AFTER,
-    component: <Before />,
+    component: <BeforeAfter />,
     loadData: () => {
-      return api.get('/product');
+      return backendApi.get('/product');
     },
-    sliceName: SliceNames.BEFORE,
+    sliceName: SliceNames.BEFORE_AFTER_PAGE,
   },
   {
     path: PATHS.ABOUT_US,
-    component: <div>about us</div>,
+    component: <About />,
+  },
+  {
+    path: PATHS.SHOP,
+    component: <Shop />,
+  },
+  {
+    path: PATHS.CONTACTS,
+    component: <Contact />,
+  },
+  {
+    path: PATHS.PERSONAL,
+    component: <Personal />,
   },
 ];
 
@@ -44,19 +60,3 @@ export const AppRouter = () => {
     </Routes>
   );
 };
-
-// import React from 'react';
-// import { useRoutes, RouteObject } from 'react-router-dom';
-
-// import { PATHS } from 'config';
-
-// import { Home } from './home';
-
-// export const routes: RouteObject[] = [
-//   {
-//     path: PATHS.HOME,
-//     element: <Home />,
-//   },
-// ];
-
-// export const AppRouter = () => useRoutes(routes);

@@ -3,11 +3,10 @@ import webpack from 'webpack';
 
 const serverForSsrConfig: webpack.Configuration = {
   target: 'node',
-  entry: path.resolve(__dirname, '..', 'server', 'ssr.tsx'),
-  devtool: 'source-map',
+  entry: path.resolve(__dirname, '..', 'server', 'ssr', 'index.ts'),
   output: {
-    path: path.resolve(__dirname, '..', 'server'),
-    filename: 'ssr.js',
+    path: path.resolve(__dirname, '..', 'server', 'ssr'),
+    filename: 'index.js',
     publicPath: '/',
   },
   module: {
@@ -28,7 +27,7 @@ const serverForSsrConfig: webpack.Configuration = {
               url: false,
               modules: {
                 mode: 'local',
-                localIdentName: '[name]__[local]__[hash:base64:5]',
+                localIdentName: '[path][name]__[local]',
                 auto: /\.module\.\w+$/i,
               },
             },

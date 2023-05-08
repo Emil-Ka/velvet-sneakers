@@ -1,4 +1,3 @@
 export const enum SliceNames {
-  BEFORE = 'before',
-  AFTER = 'after',
+  BEFORE_AFTER_PAGE = 'beforeAfterPage',
 }

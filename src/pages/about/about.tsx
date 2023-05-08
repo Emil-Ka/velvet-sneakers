@@ -48,11 +48,7 @@ export const About = () => {
           </Text>
           <div className={styles.subcont}>
             <div className={styles.person}>
-              <img
-                className={styles.person__img}
-                src="../assets/photo-personal.svg"
-                alt="personal"
-              />
+              <img className={styles.person__img} src="assets/photo-personal.svg" alt="personal" />
               <Text tag="p" color="#000" size="xs" className={styles.subtitle_personal}>
                 Эмиль Караев
               </Text>
@@ -61,11 +57,7 @@ export const About = () => {
               </Text>
             </div>
             <div className={styles.person}>
-              <img
-                className={styles.person__img}
-                src="../assets/photo-personal.svg"
-                alt="personal"
-              />
+              <img className={styles.person__img} src="assets/photo-personal.svg" alt="personal" />
               <Text tag="p" color="#000" size="xs" className={styles.subtitle_personal}>
                 Ковшов Андрей
               </Text>
@@ -74,11 +66,7 @@ export const About = () => {
               </Text>
             </div>
             <div className={styles.person}>
-              <img
-                className={styles.person__img}
-                src="../assets/photo-personal.svg"
-                alt="personal"
-              />
+              <img className={styles.person__img} src="assets/photo-personal.svg" alt="personal" />
               <Text tag="p" color="#000" size="xs" className={styles.subtitle_personal}>
                 Давид Журавлев
               </Text>
@@ -87,11 +75,7 @@ export const About = () => {
               </Text>
             </div>
             <div className={styles.person}>
-              <img
-                className={styles.person__img}
-                src="../assets/photo-personal.svg"
-                alt="personal"
-              />
+              <img className={styles.person__img} src="assets/photo-personal.svg" alt="personal" />
               <Text tag="p" color="#000" size="xs" className={styles.subtitle_personal}>
                 Завойских Артем
               </Text>
@@ -100,11 +84,7 @@ export const About = () => {
               </Text>
             </div>
             <div className={styles.person}>
-              <img
-                className={styles.person__img}
-                src="../assets/photo-personal.svg"
-                alt="personal"
-              />
+              <img className={styles.person__img} src="assets/photo-personal.svg" alt="personal" />
               <Text tag="p" color="#000" size="xs" className={styles.subtitle_personal}>
                 Сергеев Михаил
               </Text>

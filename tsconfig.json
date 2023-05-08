@@ -16,7 +16,8 @@
   },
   "include": [
     "src",
-    "file-declaration.d.ts"
+    "file-declaration.d.ts",
+    "global-declaration.d.ts"
   ],
   "ts-node": {
     "files": true

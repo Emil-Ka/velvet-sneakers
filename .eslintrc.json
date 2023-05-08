@@ -48,10 +48,13 @@
     "@typescript-eslint/ban-ts-comment": "off",
     "no-param-reassign": "off",
     "camelcase": "warn",
-    "no-underscore-dangle":  ["error", { "allow": ["_id"] }],
+    "no-underscore-dangle": "off",
     "consistent-return": "off",
     "react/prop-types": "off",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "no-restricted-syntax": "off",
+    "no-continue": "off",
+    "no-await-in-loop": "off"
   },
   "settings": {
     "import/resolver": {
