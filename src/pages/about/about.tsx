@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import { Container, Text } from 'shared/components';
 
@@ -8,6 +9,10 @@ import styles from './about.module.scss';
 export const About = () => {
   return (
     <Page className={styles.about}>
+      <Helmet>
+        <title>О нас</title>
+        <meta name="description" content="Описание нашей компании и наша история" />
+      </Helmet>
       <Container>
         <Text tag="h1" color="#000" size="l" className={styles.title}>
           {' '}

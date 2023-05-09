@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import { Container, Text } from 'shared/components';
 import { isBrowser } from 'shared/utils';
@@ -10,6 +11,14 @@ import styles from './personal.module.scss';
 export const Personal = () => {
   return (
     <Page className={styles.personal}>
+      <Helmet>
+        <title>Личный кабинет</title>
+        <meta
+          name="description"
+          content="На этой странице вы сможете посмотреть историю своих
+          заказов, а также персональные предложения"
+        />
+      </Helmet>
       <Container>
         <Text tag="h1" color="#000" size="l" className={styles.title}>
           {' '}

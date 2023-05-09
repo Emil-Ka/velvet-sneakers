@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 
-import { handlers, updateStore } from './handlers';
+import { renderHtml, updateStore } from './handlers';
 
 const app = express();
 const PORT = 8080;
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.post('/update-store', updateStore);
 
-app.use('*', handlers);
+app.use('*', renderHtml);
 
 app.listen(PORT, () => {
   console.log(`[INFO] SSR application is running on http://localhost:${PORT}`);
