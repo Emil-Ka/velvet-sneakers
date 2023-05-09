@@ -5,7 +5,7 @@ import {
   BeforeAfter,
   Advantages,
   ShopPreview,
-  AfterBeforePreview,
+  BeforeAfterPreview,
   Subscription,
   AboutUs,
   Map,
@@ -20,7 +20,7 @@ export const Home = () => {
       <BeforeAfter />
       <Advantages />
       <ShopPreview />
-      <AfterBeforePreview />
+      <BeforeAfterPreview />
       <Subscription />
       <AboutUs />
       <Map />

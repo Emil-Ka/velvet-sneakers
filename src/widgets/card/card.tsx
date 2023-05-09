@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Text } from 'shared/components';
+import { Button, Text } from 'shared/components';
 
 import { CardProps } from './types';
 import styles from './card.module.scss';
@@ -20,9 +20,7 @@ export const Card: FC<CardProps> = ({ className, ...props }) => {
         <Text tag="p" color="#fff" size="xs" className={cn(styles.price, className)}>
           {props.price}р
         </Text>
-        <Text tag="p" color="#fff" size="xs" className={cn(styles.price, className)}>
-          Кнопка
-        </Text>
+        <Button size="small">В корзину</Button>
       </div>
     </div>
   );

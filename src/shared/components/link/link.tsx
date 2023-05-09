@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
 
-import { isBrowser } from 'shared/utils';
+import { getFullHref, isBrowser } from 'shared/utils';
 import { ssrServerApi } from 'shared/api';
 import { store } from 'store';
 
@@ -15,8 +15,7 @@ export const Link: FC<ILinkProps> = ({ children, to, ...props }) => {
     );
   }
 
-  const { origin, pathname } = window.location;
-  const fullHref = `${origin}${to}`;
+  const fullHref = getFullHref(to);
 
   const handleClick = async (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

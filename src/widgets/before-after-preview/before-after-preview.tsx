@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Container, Text } from 'shared/components';
+import { PATHS } from 'config';
+import { Button, Container, Text } from 'shared/components';
 import { SectionComponentProps } from 'shared/types';
 
-import styles from './after-before-preview.module.scss';
+import styles from './before-after-preview.module.scss';
 
-export const AfterBeforePreview: FC<SectionComponentProps> = ({ className, ...props }) => {
+export const BeforeAfterPreview: FC<SectionComponentProps> = ({ className, ...props }) => {
   return (
     <section className={cn(styles.afterBeforePreview, className)} {...props}>
       <Container className={styles.content}>
@@ -19,7 +20,9 @@ export const AfterBeforePreview: FC<SectionComponentProps> = ({ className, ...pr
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
           </Text>
-          <button>Наши работы (пофиг на кнопку)</button>
+          <Button to={PATHS.BEFORE_AFTER} variant="outline">
+            Наши работы
+          </Button>
         </div>
       </Container>
     </section>
