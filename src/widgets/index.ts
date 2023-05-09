@@ -6,7 +6,7 @@ export { Promo } from './promo';
 export { BeforeAfter } from './before-after';
 export { Advantages } from './advantages';
 export { ShopPreview } from './shop-preview';
-export { AfterBeforePreview } from './after-before-preview';
+export { BeforeAfterPreview } from './before-after-preview';
 export { Subscription } from './subscription';
 export { AboutUs } from './about-us';
 export { Map } from './map';

@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { Container, Text } from 'shared/components';
+import { PATHS } from 'config';
+import { Button, Container, Text } from 'shared/components';
 import { SectionComponentProps } from 'shared/types';
 
 import styles from './shop-preview.module.scss';
@@ -18,7 +19,7 @@ export const ShopPreview: FC<SectionComponentProps> = ({ className, ...props }) 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
           </Text>
-          <button>Магазин (ждем кнопку?)</button>
+          <Button to={PATHS.SHOP}>Магазин</Button>
         </div>
         <img src="assets/cleaning-kit.jpg" alt="Набор для очистки" className={styles.img} />
       </Container>
