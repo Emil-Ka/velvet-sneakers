@@ -1,30 +1,33 @@
-import * as webpack from 'webpack';
-import * as webpackDevServer from 'webpack-dev-server';
-
 import path from 'path';
+import webpack from 'webpack';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const config: webpack.Configuration = {
-  entry: path.resolve(__dirname, 'src', 'index.tsx'),
+const ssrConfig: webpack.Configuration = {
+  entry: path.resolve(__dirname, '..', 'src', 'main.ssr.tsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'build/[name].js',
+    path: path.resolve(__dirname, '..', 'ssr'),
+    filename: '[name].js',
     publicPath: '/',
   },
+  devtool: 'source-map',
   plugins: [
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src', 'assets'),
-          to: path.resolve(__dirname, 'dist', 'assets'),
+          from: path.resolve(__dirname, '..', 'src', 'assets'),
+          to: path.resolve(__dirname, '..', 'ssr', 'assets'),
+        },
+        {
+          from: path.resolve(__dirname, '..', 'www', 'assets'),
+          to: path.resolve(__dirname, '..', 'ssr', 'assets'),
         },
       ],
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
-      filename: path.resolve(__dirname, 'dist', 'index.html'),
+      template: path.resolve(__dirname, '..', 'www', 'index.html'),
+      filename: path.resolve(__dirname, '..', 'ssr', 'index.html'),
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
@@ -46,19 +49,19 @@ const config: webpack.Configuration = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               publicPath: './',
-            }
+            },
           },
           {
             loader: 'css-loader',
             options: {
-                url: false,
-                modules: {
-                  mode: 'local',
-                  localIdentName: '[name]__[local]__[hash:base64:5]',
-                  auto: /\.module\.\w+$/i,
-                },
+              url: false,
+              modules: {
+                mode: 'local',
+                localIdentName: '[path][name]__[local]',
+                auto: /\.module\.\w+$/i,
               },
             },
+          },
           { loader: 'sass-loader' },
         ],
       },
@@ -91,19 +94,14 @@ const config: webpack.Configuration = {
           chunks: 'all',
           name: 'vendor',
           test: /node_modules/,
-        }
-      }
-    }
+        },
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    modules: ['node_modules', path.resolve(__dirname, 'src')],
-  },
-  devServer: {
-    port: 3000,
-    static: [path.resolve(__dirname, 'dist')],
-    historyApiFallback: true,
+    modules: ['node_modules', path.resolve(__dirname, '..', 'src')],
   },
 };
 
-export default config;
+export default ssrConfig;

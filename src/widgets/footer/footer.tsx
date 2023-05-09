@@ -2,11 +2,10 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { Container, Text } from 'shared/components';
+import TelegramIcon from 'assets/telegram.svg';
 
 import { FooterProps } from './types';
 import styles from './footer.module.scss';
-
-const telegramIcon = '../../assets/telegram.svg';
 
 export const Footer: FC<FooterProps> = ({ className, ...props }) => {
   return (
@@ -14,7 +13,7 @@ export const Footer: FC<FooterProps> = ({ className, ...props }) => {
       <Container className={cn(styles.cont, className)}>
         <div className={cn(styles.wrapper, className)}>
           <a href="https://t.me/joinchat/HltVtDpVhHpiYTEy">
-            <img src={telegramIcon} alt="Telegram" />
+            <TelegramIcon />
           </a>
           <a href="tel:+74950000000">
             <Text tag="p" color="#fff" size="xs" className={cn(styles.number, className)}>

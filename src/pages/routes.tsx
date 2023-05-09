@@ -1,40 +1,62 @@
 import React from 'react';
-import { useRoutes, RouteObject } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { AxiosResponse } from 'axios';
 
 import { PATHS } from 'config';
+import { backendApi } from 'shared/api';
+import { SliceNames } from 'store/constants';
 
 import { Home } from './home';
-import { Contact } from './contact';
 import { About } from './about';
 import { BeforeAfter } from './before-after';
-import { Personal } from './personal';
 import { Shop } from './shop';
+import { Contact } from './contact';
+import { Personal } from './personal';
 
-const routes: RouteObject[] = [
+interface RouteConfig {
+  path: PATHS;
+  component: JSX.Element;
+  loadData?: (params?: Record<string, string | undefined>) => Promise<AxiosResponse>;
+  sliceName?: SliceNames;
+}
+
+export const routes: RouteConfig[] = [
   {
     path: PATHS.HOME,
-    element: <Home />,
-  },
-  {
-    path: PATHS.SHOP,
-    element: <Shop />,
-  },
-  {
-    path: PATHS.ABOUT_US,
-    element: <About />,
-  },
-  {
-    path: PATHS.CONTACTS,
-    element: <Contact />,
+    component: <Home />,
   },
   {
     path: PATHS.BEFORE_AFTER,
-    element: <BeforeAfter />,
+    component: <BeforeAfter />,
+    loadData: () => {
+      return backendApi.get('/product');
+    },
+    sliceName: SliceNames.BEFORE_AFTER_PAGE,
+  },
+  {
+    path: PATHS.ABOUT_US,
+    component: <About />,
+  },
+  {
+    path: PATHS.SHOP,
+    component: <Shop />,
+  },
+  {
+    path: PATHS.CONTACTS,
+    component: <Contact />,
   },
   {
     path: PATHS.PERSONAL,
-    element: <Personal />,
+    component: <Personal />,
   },
 ];
 
-export const AppRouter = () => useRoutes(routes);
+export const AppRouter = () => {
+  return (
+    <Routes>
+      {routes.map(({ path, component }) => (
+        <Route key={path} path={path} element={component} />
+      ))}
+    </Routes>
+  );
+};

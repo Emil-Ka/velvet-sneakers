@@ -1,5 +1,9 @@
 import React, { FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
+import { PATHS } from 'config';
+import { Link } from 'shared/components';
+
 import styles from './breadcrumbs.module.scss';
 
 export const Breadcrumbs: FC = () => {
@@ -23,7 +27,7 @@ export const Breadcrumbs: FC = () => {
   return (
     <ul className={styles.crumbs}>
       <li className={styles.crumb} key={-1}>
-        <Link to="/">Главная</Link>
+        <Link to={PATHS.HOME}>Главная</Link>
       </li>
       {crumbs}
     </ul>

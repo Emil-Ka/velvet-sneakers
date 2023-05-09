@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import { PATHS } from 'config';
-import { Container, Logo } from 'shared/components';
+import { Link, Container, Logo } from 'shared/components';
 
 import { Menu } from '../menu';
 import { HeaderProps } from './types';

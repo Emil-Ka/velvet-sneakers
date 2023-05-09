@@ -9,5 +9,18 @@
         "corejs": 3
       }
     ]
-  ]
+  ],
+  "env": {
+    "server": {
+      "plugins": [
+        [
+          "css-modules-transform", {
+              "preprocessCss": "./loaders/scss-loader.js",
+              "generateScopedName": "[path][name]__[local]",
+              "extensions": [".scss"]
+          }
+        ]
+      ]
+    }
+}
 }

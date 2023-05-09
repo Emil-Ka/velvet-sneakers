@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
+
+import { Link } from 'shared/components';
 
 import { menuContent } from './content';
 import { MenuProps } from './types';

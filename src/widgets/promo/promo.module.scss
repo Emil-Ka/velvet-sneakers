@@ -8,7 +8,7 @@
 
   background: url("assets/nike-jordan-pink.jpg") no-repeat;
   background-position: right bottom;
-  background-size: min(80%, 970px);
+  background-size: min(80%, 95%);
 }
 
 .title {
@@ -18,5 +18,5 @@
 .form {
   width: 40%;
 
-  box-shadow: 9px 7px 62px rgb(0 0 0 / 43%);
+  box-shadow: 9px 7px 62px rgba(0, 0, 0, .43);
 }

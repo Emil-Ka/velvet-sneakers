@@ -3,7 +3,6 @@ import cn from 'classnames';
 
 import { Container, Text } from 'shared/components';
 import { SectionComponentProps } from 'shared/types';
-import CleaningKit from 'assets/cleaning-kit.jpg';
 
 import styles from './shop-preview.module.scss';
 
@@ -21,7 +20,7 @@ export const ShopPreview: FC<SectionComponentProps> = ({ className, ...props }) 
           </Text>
           <button>Магазин (ждем кнопку?)</button>
         </div>
-        <img src={CleaningKit} alt="Набор для очистки" className={styles.img} />
+        <img src="assets/cleaning-kit.jpg" alt="Набор для очистки" className={styles.img} />
       </Container>
     </section>
   );
