@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 
 import { Container } from 'shared/components';
@@ -12,6 +13,13 @@ export const BeforeAfter = () => {
 
   return (
     <Page>
+      <Helmet>
+        <title>До / После</title>
+        <meta
+          name="description"
+          content="Взгляните, как наши средства помогают очистить кроссовки"
+        />
+      </Helmet>
       <Container className={styles.container}>
         <ul className={styles.products}>
           {products.map(({ id, image, title }) => (
