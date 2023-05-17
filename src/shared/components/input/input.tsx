@@ -8,10 +8,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, rangeClassName, min, max, type, onChange, isGray, isOutlined, ...props }, ref) => {
     const [value, setValue] = useState<string>('');
 
-    useEffect(() => {
-      console.log(value);
-    }, [value]);
-
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (onChange) {
         onChange(e);

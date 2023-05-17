@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent } from 'react';
 import cn from 'classnames';
 
-import { getFullHref, isBrowser } from 'shared/utils';
+import { getFullHref } from 'shared/utils';
 
 import { IButtonProps } from './types';
 import styles from './button.module.scss';
@@ -20,7 +20,7 @@ export const Button: FC<IButtonProps> = ({
       onClick(e);
     }
 
-    if (isBrowser() && to) {
+    if (to) {
       window.location.href = getFullHref(to);
     }
   };
