@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { PATHS } from 'config';
-import { Link, Container, Logo } from 'shared/components';
+import { Link, Container, Logo, Avatar } from 'shared/components';
 
 import { Menu } from '../menu';
 import { HeaderProps } from './types';
@@ -17,6 +17,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
           <Logo className={styles.logo} />
         </Link>
         <Menu />
+        <Avatar />
       </Container>
     </header>
   );

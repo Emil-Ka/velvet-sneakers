@@ -6,3 +6,4 @@ export { Input } from './input';
 export { List, ListItem } from './list';
 export { Link } from './link';
 export { Button } from './button';
+export { Avatar } from './avatar';
