@@ -10,3 +10,8 @@ export { BeforeAfterPreview } from './before-after-preview';
 export { Subscription } from './subscription';
 export { AboutUs } from './about-us';
 export { Map } from './map';
+export { LoginForm } from './login-form';
+export { RegisterForm } from './register-form';
+export { PersonalOffer } from './personal-offer';
+export { OrderHistory } from './order-history';
+export { Auth } from './auth';

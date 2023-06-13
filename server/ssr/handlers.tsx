@@ -12,13 +12,56 @@ import { JSDOM } from 'jsdom';
 
 import { App } from '../../src/app';
 import { routes } from '../../src/pages';
-import { PreloadedState, rootReducer } from '../../src/store';
+import { PreloadedState, rootReducer, SliceNames } from '../../src/store';
+import { backendApi } from '../../src/shared/api';
+import { User } from '../../src/shared/types';
 
 const SUCCESS_STATUS = 200;
-let preloadedState: PreloadedState = {};
+const USER_ID = 'userId';
+const usersPreloadedStates: Record<string, PreloadedState> = {};
 
-export const renderHtml = async (req: Request, res: Response, next: NextFunction) => {
+let counter = 0;
+
+// TODO Писал на коленках сори
+export const mainHandler = async (req: Request, res: Response, next: NextFunction) => {
   console.log('[GET]', req.originalUrl);
+
+  let { userId } = req.cookies;
+  const { accessToken } = req.cookies;
+
+  if (!userId) {
+    userId = (counter += 1).toString();
+    usersPreloadedStates[userId] = {};
+    res.cookie(USER_ID, userId, {
+      sameSite: 'none',
+      secure: true,
+    });
+  }
+
+  usersPreloadedStates[userId] = usersPreloadedStates[userId] || {};
+  const preloadedState = usersPreloadedStates[userId];
+
+  if ((!preloadedState[SliceNames.AUTH] || !preloadedState[SliceNames.AUTH].data) && accessToken) {
+    try {
+      const { data } = await backendApi.get<User>('/auth/me', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      preloadedState[SliceNames.AUTH] = {
+        ...(preloadedState[SliceNames.AUTH] || {
+          status: 'success',
+          errorMessage: null,
+        }),
+        data,
+      };
+    } catch (err) {
+      if (err instanceof Error) {
+        console.log('[ERR]', err.message);
+      }
+    }
+  }
 
   const indexHTML = await fs.readFile(path.resolve(__dirname, '..', '..', 'ssr', 'index.html'), {
     encoding: 'utf8',
@@ -33,6 +76,7 @@ export const renderHtml = async (req: Request, res: Response, next: NextFunction
       try {
         const { data } = await loadData(match.params);
 
+        // @ts-ignore
         preloadedState[sliceName] = {
           ...(preloadedState[sliceName] || {}),
           data,
@@ -98,7 +142,18 @@ export const renderHtml = async (req: Request, res: Response, next: NextFunction
 };
 
 export const updateStore = (req: Request<unknown, unknown, PreloadedState>, res: Response) => {
-  preloadedState = req.body;
+  const { userId } = req.cookies;
+
+  if (!userId) {
+    console.log(
+      '[ERR] Для того чтобы сохранить актуальное состояние' +
+        ' Redux хранилища, нужно передать в куки userId',
+    );
+
+    return res.end();
+  }
+
+  usersPreloadedStates[userId] = req.body;
 
   res.status(SUCCESS_STATUS);
   res.end();

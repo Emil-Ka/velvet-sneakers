@@ -2,11 +2,12 @@ import { ComponentProps, FC, PropsWithChildren } from 'react';
 
 import { Input } from 'shared/components';
 
-interface InputProps extends PropsWithChildren<ComponentProps<'form'>> {
+interface FormProps extends PropsWithChildren<ComponentProps<'form'>> {
   variant?: 'filled' | 'border' | 'transparent';
   buttonLocation?: 'left' | 'right' | 'center';
+  error?: string | null;
 }
 
-export type FormType = FC<InputProps> & {
+export type FormType = FC<FormProps> & {
   Input: typeof Input;
 };

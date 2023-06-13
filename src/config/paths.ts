@@ -5,4 +5,6 @@ export const enum PATHS {
   CONTACTS = '/contacts',
   SHOP = '/shop',
   PERSONAL = '/personal',
+  LOGIN = '/login',
+  REGISTER = '/register',
 }
