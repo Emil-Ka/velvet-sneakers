@@ -1,11 +1,14 @@
-import React, { ChangeEvent, forwardRef, useEffect, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useState } from 'react';
 import cn from 'classnames';
 
 import { InputProps } from './types';
 import styles from './input.module.scss';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, rangeClassName, min, max, type, onChange, isGray, isOutlined, ...props }, ref) => {
+  (
+    { className, rangeClassName, min, max, type, onChange, isGray, isOutlined, error, ...props },
+    ref,
+  ) => {
     const [value, setValue] = useState<string>('');
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -39,6 +42,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className={cn(styles.range, rangeClassName)}
           />
         )}
+        {error && <b>{error}</b>}
       </div>
     );
   },

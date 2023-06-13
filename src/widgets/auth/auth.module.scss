@@ -1,0 +1,19 @@
+.auth {
+  display: grid;
+  gap: var(--indent-size-xl);
+  grid-template-areas: 'title title'
+                        'login register';
+  padding: var(--indent-size-s);
+}
+
+.title {
+  grid-area: title;
+}
+
+.login {
+  grid-area: login;
+}
+
+.register {
+  grid-area: register;
+}

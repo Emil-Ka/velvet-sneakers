@@ -1,9 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
 
-import { getFullHref, isBrowser } from 'shared/utils';
-import { ssrServerApi } from 'shared/api';
-import { store } from 'store';
-
+import { getFullHref, isBrowser, updateStore } from 'shared/utils';
 import { ILinkProps } from './types';
 
 export const Link: FC<ILinkProps> = ({ children, to, ...props }) => {
@@ -20,13 +17,7 @@ export const Link: FC<ILinkProps> = ({ children, to, ...props }) => {
   const handleClick = async (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    try {
-      await ssrServerApi.post('/update-store', store.getState());
-    } catch (err) {
-      if (err instanceof Error) {
-        console.error(err.message);
-      }
-    }
+    await updateStore();
 
     window.location.href = fullHref;
   };

@@ -11,6 +11,7 @@ export const Form: FormType = ({
   variant = 'transparent',
   children,
   buttonLocation = 'center',
+  error,
   ...props
 }) => {
   return (
@@ -19,6 +20,7 @@ export const Form: FormType = ({
       {...props}
     >
       {children}
+      {error && <b className={styles.error}>{error}</b>}
     </form>
   );
 };

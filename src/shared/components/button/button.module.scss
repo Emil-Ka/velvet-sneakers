@@ -5,6 +5,10 @@
 
   font-size: var(--font-m);
   font-weight: 700;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .small {

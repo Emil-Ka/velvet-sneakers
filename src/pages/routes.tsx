@@ -12,6 +12,8 @@ import { BeforeAfter } from './before-after';
 import { Shop } from './shop';
 import { Contact } from './contact';
 import { Personal } from './personal';
+import { Login } from './login';
+import { Register } from './register';
 
 interface RouteConfig {
   path: PATHS;
@@ -48,6 +50,14 @@ export const routes: RouteConfig[] = [
   {
     path: PATHS.PERSONAL,
     component: <Personal />,
+  },
+  {
+    path: PATHS.LOGIN,
+    component: <Login />,
+  },
+  {
+    path: PATHS.REGISTER,
+    component: <Register />,
   },
 ];
 

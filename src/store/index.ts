@@ -1,3 +1,4 @@
 export { store, preloadedState } from './store';
 export { rootReducer } from './root-reducer';
-export { PreloadedState, ApplicationStore } from './types';
+export { PreloadedState, ApplicationStore, DispatchType } from './types';
+export { SliceNames } from './constants';
